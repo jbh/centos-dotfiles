@@ -1,0 +1,52 @@
+# .bashrc
+
+# Temporary utility function
+function _source_if_exists {
+	local file ;
+	for file ; do
+		[ -f "${file}" ] && source "${file}" ;
+	done
+}
+
+#
+# Common bash invocations...
+#
+# (1) interactive login shells
+#     $- = himBH
+#
+# (2) non-interactive login shells
+#     $- = hBc
+#
+case $- in *i* )
+
+    # Source global definitions
+    _source_if_exists "/etc/bashrc" ;
+
+	# Set easy-to-use color variables
+	_source_if_exists "${HOME}/.bash_colors" ;
+
+	# Configuration settings. Like Globstar
+	_source_if_exists "${HOME}/.bash_config" ;
+
+	# Source git prompt helper functions for bash prompt
+	_source_if_exists "${HOME}/.bash_git_prompt" ;
+
+    # Set the PS1 prompt for interactive shells
+    _source_if_exists "${HOME}/.bash_prompt" ;
+
+    # Bash variables. Things like TERMINAL, EDITOR, etc.
+    _source_if_exists "${HOME}/.bash_variables" ;
+
+	# Bash PATH
+	_source_if_exists "${HOME}/.bash_path" ;
+
+	# Bash functions
+	_source_if_exists "${HOME}/.bash_functions" ;
+
+	# Bash aliases
+	_source_if_exists "${HOME}/.bash_aliases" ;
+
+esac
+
+# Unset temporary utility function
+unset _source_if_exists ;

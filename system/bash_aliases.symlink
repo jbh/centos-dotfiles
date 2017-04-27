@@ -1,0 +1,14 @@
+# Directory Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+# Reload bash configuration
+alias reload="source ${HOME}/.bashrc"
+
+# helpful ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'

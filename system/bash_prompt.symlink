@@ -1,0 +1,7 @@
+if [ "$(type -t __git_ps1)" = 'function' ]; then
+    PS1="${CYAN}\W${RESET}${GREEN}\$(__git_ps1) ${RED}→${RESET} "
+else
+    PS1="${CYAN}\W${RESET} ${RED}→${RESET} "
+fi
+
+export PS1
